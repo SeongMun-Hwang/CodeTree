@@ -7,7 +7,7 @@ int A[100], B[100];
 
 int main() {
     cin >> N >> K;
-    int block[101];
+    int block[101]={0};
     int max=0;
     for (int i = 0; i < K; i++) {
         cin >> A[i] >> B[i];
