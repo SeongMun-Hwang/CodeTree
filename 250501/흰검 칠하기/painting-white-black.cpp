@@ -46,7 +46,7 @@ int main() {
     }
 
     int num_white=0,num_black=0,num_gray=0;
-    for(int i=0;i<2000;i++){
+    for(int i=0;i<10000;i++){
         if(tiles[i].color=='W') num_white++;
         else if(tiles[i].color=='B') num_black++;
         else if(tiles[i].color=='G') num_gray++;
