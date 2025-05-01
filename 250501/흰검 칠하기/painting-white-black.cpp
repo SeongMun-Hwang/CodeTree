@@ -1,5 +1,5 @@
 #include <iostream>
-#define MAX 100000
+#define MAX 1000000
 using namespace std;
 
 int n;
