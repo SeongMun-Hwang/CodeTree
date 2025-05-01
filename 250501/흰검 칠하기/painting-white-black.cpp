@@ -1,5 +1,5 @@
 #include <iostream>
-
+#define MAX 100000
 using namespace std;
 
 int n;
@@ -17,9 +17,9 @@ class Tile{
 };
 
 int main() {
-    int index=5000;
+    int index=MAX/2;
     cin >> n;
-    Tile tiles[10000];
+    Tile tiles[MAX];
 
     for (int i = 0; i < n; i++) {
         cin >> x[i] >> dir[i];
@@ -46,7 +46,7 @@ int main() {
     }
 
     int num_white=0,num_black=0,num_gray=0;
-    for(int i=0;i<10000;i++){
+    for(int i=0;i<MAX;i++){
         if(tiles[i].color=='W') num_white++;
         else if(tiles[i].color=='B') num_black++;
         else if(tiles[i].color=='G') num_gray++;
