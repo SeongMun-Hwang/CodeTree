@@ -25,7 +25,7 @@ int main() {
         }
     }
     int count=0;
-    for(int i=0;i<101;i++){
+    for(int i=0;i<2000;i++){
         if(block[i]>=2) count++;
     }
     cout << count;
