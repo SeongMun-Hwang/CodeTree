@@ -17,9 +17,9 @@ class Tile{
 };
 
 int main() {
-    int index=1000;
+    int index=5000;
     cin >> n;
-    Tile tiles[2001];
+    Tile tiles[10000];
 
     for (int i = 0; i < n; i++) {
         cin >> x[i] >> dir[i];
