@@ -31,7 +31,7 @@ int main() {
                 tiles[j].isGray();
                 }
             }
-            index-=x[i]-1;
+            index=index-x[i]+1;
         }
         else{
             for(int j=index;j<index+x[i];j++){
@@ -41,7 +41,7 @@ int main() {
                 tiles[j].isGray();
                 }
             }
-            index+=x[i]-1;
+            index=index+x[i]-1;
         }
     }
 
