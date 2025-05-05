@@ -17,8 +17,8 @@ int main() {
     x2[1]+=1000;
     y2[1]+=1000;
     for(int n = 0; n<2;n++){
-        for(int i=x1[n]; i<=x2[n]; i++){
-            for(int j=y1[n]; j<=y2[n]; j++){
+        for(int i=x1[n]; i<x2[n]; i++){
+            for(int j=y1[n]; j<y2[n]; j++){
                 if(n==0) arr[i][j]=1;
                 else arr[i][j]=0;
             }
@@ -39,7 +39,7 @@ int main() {
         }
     }
     if(isCovered) cout << 0;
-    else cout << (max_x-min_x) * (max_y-min_y);
+    else cout << (max_x-min_x+1) * (max_y-min_y+1);
 
     return 0;
 }
