@@ -26,9 +26,11 @@ int main() {
     }
     int min_x=2000, min_y=2000;
     int max_x=0, max_y=0;
+    bool isCovered=true;
     for(int i=0;i<2000;i++){
         for(int j=0;j<2000;j++){
             if(arr[i][j]==1){
+                isCovered=false;
                 if(i>max_x) max_x=i;
                 if(i<min_x) min_x=i;
                 if(j>max_y) max_y=j;
@@ -36,8 +38,8 @@ int main() {
             }
         }
     }
-
-    cout << (max_x-min_x) * (max_y-min_y);
+    if(isCovered) cout << 0;
+    else cout << (max_x-min_x) * (max_y-min_y);
 
     return 0;
 }
