@@ -1,34 +1,30 @@
 #include <iostream>
-
+#include <algorithm>
 using namespace std;
 
-int x1[2], y1[2];
-int x2[2], y2[2];
-
 int main() {
-    cin >> x1[0] >> y1[0] >> x2[0] >> y2[0];
-    cin >> x1[1] >> y1[1] >> x2[1] >> y2[1];
+    int x1, y1, x2, y2;
+    int a1, b1, a2, b2;
+    cin >> x1 >> y1 >> x2 >> y2;
+    cin >> a1 >> b1 >> a2 >> b2;
 
-    int size = (x2[0]-x1[0]) * (y2[0]-y1[0]);
+    int area = (x2 - x1) * (y2 - y1);
+    int result = area;
 
-    if(y2[1]>=y2[0] && y1[1]<=y1[0]){
-        if(x2[1]<x2[0] && !(x1[1]>x1[0])){
-            size -= (x2[0]-x2[1]) * (y2[0]-y1[0]);
-        }
-        else if(x1[1]>x1[0] && !(x2[1]<x2[0])){
-            size -= (x1[1]-x1[0]) * (y2[0]-y1[0]);
-        }
-    }
-    if(x2[1]>=x2[0] && x1[1]<=x1[0]){
-        if(y2[1]<y2[0] && !(y1[1]>y1[0])){
-            size -= (y2[0]-y1[0]) * (x2[0]-x1[0]);
-        }
-        else if(y1[1]>y1[0] && !(y2[1]<y2[0])){
-            size -= (y1[1]-y1[0]) * (x2[0]-x1[0]);
-        }
+    // 세로로 완전히 막을 때
+    if (a1 <= x1 && a2 >= x2) {
+        int top = max(0, y2 - b2);
+        int bottom = max(0, b1 - y1);
+        result = min(top, bottom) * (x2 - x1);
     }
 
-    cout << size;
+    // 가로로 완전히 막을 때
+    if (b1 <= y1 && b2 >= y2) {
+        int right = max(0, x2 - a2);
+        int left = max(0, a1 - x1);
+        result = min(right, left) * (y2 - y1);
+    }
 
+    cout << result;
     return 0;
 }
