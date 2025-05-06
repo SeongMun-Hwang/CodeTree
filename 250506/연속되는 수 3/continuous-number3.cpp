@@ -12,7 +12,10 @@ int main() {
     char prev =' ';
     for (int i = 0; i < N; i++) {
         cin >> arr[i];
-        
+        if(i==0){
+        if(arr[i]<0) prev='M';
+        else if(arr[i]>0) prev='P';
+        }
         if(i!=0){
             if(arr[i]>0){
                 if(prev=='P') cnt++;
