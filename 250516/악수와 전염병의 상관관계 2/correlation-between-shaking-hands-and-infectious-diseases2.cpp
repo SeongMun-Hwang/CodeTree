@@ -36,14 +36,17 @@ int main() {
     sort(Meets.begin(),Meets.end(),cmp);
 
     for (int i = 0; i < T; i++) {
-        if(Devs[Meets[i].x-1].infected && Devs[Meets[i].x-1].cnt>0){
-            Devs[Meets[i].x-1].cnt--;
-            Devs[Meets[i].y-1].infected=true;
-        }
-        if(Devs[Meets[i].y-1].infected && Devs[Meets[i].y-1].cnt>0){
-            Devs[Meets[i].y-1].cnt--;
-            Devs[Meets[i].x-1].infected=true;
-        }
+        int a = Meets[i].x - 1;
+        int b = Meets[i].y - 1;
+
+        bool aCanInfect = Devs[a].infected && Devs[a].cnt > 0;
+        bool bCanInfect = Devs[b].infected && Devs[b].cnt > 0;
+
+        if (aCanInfect) Devs[a].cnt--;
+        if (bCanInfect) Devs[b].cnt--;
+
+        if (aCanInfect) Devs[b].infected = true;
+        if (bCanInfect) Devs[a].infected = true;
     }
     for(int i=0;i<N;i++){
         cout << Devs[i].infected;
